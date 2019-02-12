@@ -5,7 +5,7 @@
      Integrantes
      1) Giulliano Albrecht Instagram --> giulliano_cht
      2) Miguel Castiñeira Instagram --> miguel_castinheira
-     3) Aldo Franco Instagram -->
+     3) Aldo Franco Instagram --> Aldo.franco1
      4) Ivan Ayala  Instagram --> ivanrayala
 
 """
