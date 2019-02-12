@@ -95,6 +95,8 @@ while loopQuit == False:
     for i in range(0,4):
         pygame.event.pump()
         axis = joystick.get_axis(i)
+        if i == 0 and axis == 0:
+            JAKAI.detener()
         if i == 0 and axis < 0:
             JAKAI.izq()
             #print("Izquierda")
@@ -115,6 +117,8 @@ while loopQuit == False:
         if i == 6 and button == 1:
             #print ("Apretaste L2")
             JAKAI.reversa()
+        if button == 0:
+            JAKAI.detener()
         """if i == 0 and button == 1:
             #print ("Apretaste X")
         if i == 1 and button == 1:
