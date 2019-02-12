@@ -1,3 +1,4 @@
+#_*_ coding: utf-8 _*_
 """
      JAKAI - Proyecto Hackathon BootCamp Penguin Academy 2019
      Asunción - Paraguay
@@ -39,31 +40,26 @@ class Robot:
         gpio.output(self.izq1,True)
         gpio.output(self.der2,False)
         gpio.output(self.izq2,False)
-        time.sleep(0.1)
     def reversa(self):
         gpio.output(self.der1,False)
         gpio.output(self.izq1,False)
         gpio.output(self.der2,True)
         gpio.output(self.izq2,True)
-        time.sleep(0.1)
     def izq(self):
         gpio.output(self.der1,True)
         gpio.output(self.izq1,False)
         gpio.output(self.der2,False)
         gpio.output(self.izq2,True)
-        time.sleep(0.1)
     def der(self):
         gpio.output(self.der1,False)
         gpio.output(self.izq1,True)
         gpio.output(self.der2,True)
         gpio.output(self.izq2,False)
-        time.sleep(0.1)
     def detener(self):
         gpio.output(self.der1,False)
         gpio.output(self.izq1,False)
         gpio.output(self.der2,False)
         gpio.output(self.izq2,False)
-        time.sleep(0.1)
 
 JAKAI = Robot("Jakai",motor_der1,motor_izq1,motor_der2,motor_izq2)
 
@@ -95,8 +91,6 @@ while loopQuit == False:
     for i in range(0,4):
         pygame.event.pump()
         axis = joystick.get_axis(i)
-        if i == 0 and axis == 0:
-            JAKAI.detener()
         if i == 0 and axis < 0:
             JAKAI.izq()
             #print("Izquierda")
@@ -111,14 +105,13 @@ while loopQuit == False:
             loopQuit = True
         if i == 8 and button == 1:
             JAKAI.detener()
+            # Si se presiona select se detiene
         if i == 7 and button == 1:
             #print ("Apretaste R2")
             JAKAI.avanzar()
         if i == 6 and button == 1:
             #print ("Apretaste L2")
             JAKAI.reversa()
-        if button == 0:
-            JAKAI.detener()
         """if i == 0 and button == 1:
             #print ("Apretaste X")
         if i == 1 and button == 1:
