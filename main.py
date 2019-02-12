@@ -12,7 +12,6 @@
 import RPi.GPIO as gpio      # libreria para utilizar los puertos de entrada y salida
 import pygame
 import time
-import clases
 
 motor_der1 = 18
 motor_der2 = 19
@@ -27,10 +26,58 @@ gpio.setup(motor_der2,gpio.OUT) # Se configura el motor Der 2
 gpio.setup(motor_izq1,gpio.OUT) # Se configura el motor Izq 1
 gpio.setup(motor_izq2,gpio.OUT) # Se configura el motor Izq 2
 
+class Robot:
+
+    def __init__(self,un_nombre ="",der1,izq1,der2,izq2):
+        self.nombre = un_nombre
+        self.der1 = der1
+        self.izq1 = izq1
+        self.der2 = der2
+        self.izq2 = izq2
+
+    def avanzar(self):
+
+        gpio.output(self.der1,True)
+        gpio.output(self.izq1,True)
+        gpio.output(self.der2,False)
+        gpio.output(self.izq2,False)
+		time.sleep(0.1)
+
+    def reversa(self):
+
+        gpio.output(self.der1,False)
+        gpio.output(self.izq1,False)
+        gpio.output(self.der2,True)
+        gpio.output(self.izq2,True)
+		time.sleep(0.1)
+
+    def izq(self):
+
+        gpio.output(self.der1,True)
+        gpio.output(self.izq1,False)
+        gpio.output(self.der2,False)
+        gpio.output(self.izq2,True)
+		time.sleep(0.1)
+
+    def der(self):
+
+        gpio.output(self.der1,False)
+        gpio.output(self.izq1,True)
+        gpio.output(self.der2,True)
+        gpio.output(self.izq2,False)
+		time.sleep(0.1)
+
+    def detener(self):
+
+        gpio.output(self.der1,False)
+        gpio.output(self.izq1,False)
+        gpio.output(self.der2,False)
+        gpio.output(self.izq2,False)
+		time.sleep(0.1)
 
 JAKAI = Robot("Jakai",motor_der1,motor_izq1,motor_der2,motor_izq2)
 
-game.init()
+pygame.init()
 pygame.joystick.init()
 
 
@@ -50,6 +97,7 @@ numbuttons = joystick.get_numbuttons()
 """print("numbuttons")
 print(numbuttons)
 print("--------------")"""
+
 loopQuit = False
 while loopQuit == False:
 	time.sleep(0.1)
@@ -86,4 +134,4 @@ while loopQuit == False:
 		if i == 3 and button == 1:
 			#print ("Apretaste Cuadrado")"""
 
-	#pygame.quit()
+pygame.quit()
