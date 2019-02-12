@@ -1,3 +1,14 @@
+"""
+     JAKAI - Proyecto Hackathon BootCamp Penguin Academy 2019
+     Asunción - Paraguay
+     Mentor : Williams Bobadilla
+     Integrantes
+     1) Giulliano Albrecht Instagram --> giulliano_cht
+     2) Miguel Castiñeira Instagram --> miguel_castinheira
+     3) Aldo Franco Instagram -->
+     4) Ivan Ayala  Instagram --> ivanrayala
+
+"""
 import RPi.GPIO as gpio  	 # libreria para utilizar los puertos de entrada y salida
 import pygame
 import time
