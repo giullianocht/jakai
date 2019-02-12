@@ -28,8 +28,8 @@ numbuttons = joystick.get_numbuttons()
 print("numbuttons")
 print(numbuttons)
 print("--------------")
-
-while True:
+loopQuit = False
+while loopQuit == False:
     time.sleep(0.5)
 # test joystick axes
     for i in range(0,4):
@@ -38,19 +38,19 @@ while True:
         print("Axis " + str(i) + " = " + str(axis))
     print("--------------")
 
-# test controller buttons
+    #test controller buttons
     for i in range(0,numbuttons):
         pygame.event.pump()
         button = joystick.get_button(i)
-        print("Button " + str(i) + " = " + str(button))
-    print("--------------")
-
-# quit if escape pressed
-    """for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                loopQuit = True
-
-    pygame.display.update()"""
+        if i == 9 and button == 1:
+            loopQuit = True
+        if i == 0 and button == 1:
+            print ("Apretaste X")
+        if i == 1 and button == 1:
+            print ("Apretaste Circulo")
+        if i == 2 and button == 1:
+            print ("Apretaste Triangulo")
+        if i == 3 and button == 1:
+            print ("Apretaste Cuadrado")
 
 pygame.quit()
