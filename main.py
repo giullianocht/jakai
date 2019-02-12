@@ -28,7 +28,7 @@ gpio.setup(motor_izq2,gpio.OUT) # Se configura el motor Izq 2
 
 class Robot:
 
-    def __init__(self,un_nombre ="",der1,izq1,der2,izq2):
+    def __init__(self,un_nombre,der1,izq1,der2,izq2):
         self.nombre = un_nombre
         self.der1 = der1
         self.izq1 = izq1
